@@ -1,0 +1,11 @@
+<ul class="space-y-2.5">
+  @for (item of ingredients(); track item.name) {
+    <li class="flex items-baseline gap-3">
+      <span class="text-sm font-semibold text-stone-900 text-right shrink-0 min-w-14">
+        {{ item.quantity }}{{ item.unit ? " " + item.unit : "" }}
+      </span>
+      <span class="w-px self-stretch bg-stone-200 shrink-0"></span>
+      <span class="text-sm text-stone-600">{{ item.name }}</span>
+    </li>
+  }
+</ul>

@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { SearchBarComponent } from "../shared/search-bar.component";
-import { RecipeListComponent } from "../features/recipes/recipe-list.component";
+import { SearchBar } from "../shared/search-bar/search-bar";
+import { RecipeList } from "../features/recipes/recipe-list/recipe-list";
 
 @Component({
   selector: "app-home",
-  imports: [SearchBarComponent, RecipeListComponent],
+  imports: [SearchBar, RecipeList],
   template: `
     <!-- Hero section -->
     <section class="bg-white border-b border-stone-100">

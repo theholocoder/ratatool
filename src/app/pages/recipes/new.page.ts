@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RecipeEditorComponent } from '../../features/recipes/recipe-editor.component';
+import { RecipeEditor } from '../../features/recipes/recipe-editor/recipe-editor';
 
 @Component({
   selector: 'app-new-recipe-page',
-  imports: [RecipeEditorComponent],
+  imports: [RecipeEditor],
   template: `<app-recipe-editor />`,
 })
 export default class NewRecipePage {}

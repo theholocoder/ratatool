@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Recipe } from './recipe.model';
-import { RecipeCardComponent } from './recipe-card.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Recipe } from '../recipe.model';
+import { RecipeCard } from '../recipe-card/recipe-card';
 
 const MOCK_RECIPES: Recipe[] = [
   {
@@ -79,16 +79,11 @@ const MOCK_RECIPES: Recipe[] = [
 
 @Component({
   selector: 'app-recipe-list',
-  imports: [RecipeCardComponent],
-  template: `
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      @for (recipe of recipes; track recipe.slug) {
-        <app-recipe-card [recipe]="recipe" />
-      }
-    </div>
-  `,
-  styles: [':host { display: block; }'],
+  imports: [RecipeCard],
+  templateUrl: './recipe-list.html',
+  styleUrl: './recipe-list.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RecipeListComponent {
+export class RecipeList {
   readonly recipes = MOCK_RECIPES;
 }

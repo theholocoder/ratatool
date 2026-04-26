@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RecipeDetailComponent } from '../../features/recipes/recipe-detail.component';
+import { RecipeDetail } from '../../features/recipes/recipe-detail/recipe-detail';
 
 @Component({
   selector: 'app-recipe-page',
-  imports: [RecipeDetailComponent],
+  imports: [RecipeDetail],
   template: `<app-recipe-detail />`,
 })
 export default class RecipePage {}
