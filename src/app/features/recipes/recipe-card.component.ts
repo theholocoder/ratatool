@@ -1,0 +1,68 @@
+import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Recipe } from './recipe.model';
+
+@Component({
+  selector: 'app-recipe-card',
+  imports: [RouterLink],
+  template: `
+    <a [routerLink]="['/recipes', recipe().slug]"
+       class="group flex flex-col bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-150 cursor-pointer h-full">
+
+      <!-- Accent top bar -->
+      <div class="h-1 shrink-0" [style.background-color]="recipe().accent"></div>
+
+      <!-- Body -->
+      <div class="flex flex-col flex-1 p-5">
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          @for (tag of recipe().tags; track tag) {
+            <span class="text-xs font-medium px-2 py-0.5 bg-stone-100 text-stone-500 rounded-full">{{ tag }}</span>
+          }
+        </div>
+
+        <!-- Title -->
+        <h3 class="text-xl font-semibold text-stone-900 leading-snug mb-2 group-hover:text-amber-600 transition-colors"
+            style="font-family: var(--font-serif)">
+          {{ recipe().title }}
+        </h3>
+
+        <!-- Description -->
+        <p class="text-sm text-stone-500 leading-relaxed line-clamp-2 flex-1">
+          {{ recipe().description }}
+        </p>
+
+        <!-- Footer meta -->
+        <div class="flex flex-wrap items-center gap-4 mt-4 pt-4 border-t border-stone-100 text-xs text-stone-400">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+            </svg>
+            Prep {{ recipe().prepTime }}min
+          </span>
+          @if (recipe().cookTime > 0) {
+            <span class="flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" /><path d="M12 6v6l4 2" />
+              </svg>
+              Cook {{ recipe().cookTime }}min
+            </span>
+          }
+          <span class="ml-auto flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            {{ recipe().servings }} servings
+          </span>
+        </div>
+
+      </div>
+    </a>
+  `,
+  styles: [':host { display: block; height: 100%; }'],
+})
+export class RecipeCardComponent {
+  recipe = input.required<Recipe>();
+}
