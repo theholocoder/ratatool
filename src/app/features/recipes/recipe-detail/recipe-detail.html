@@ -69,8 +69,9 @@
           <app-serving-adjuster [servings]="recipe.servings ?? 1" />
         </div>
         <!-- Ingredient list -->
+        <!-- TODO: refactor IngredientList to accept IngredientGroup[] and remove this flattening -->
         <div class="px-5 py-4">
-          <app-ingredient-list [ingredients]="recipe.ingredients" />
+          <app-ingredient-list [ingredients]="recipe.ingredientGroups[0]?.ingredients ?? []" />
         </div>
       </div>
     </aside>

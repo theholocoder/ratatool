@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeCard } from '../recipe-card/recipe-card';
 
+// TODO: replace mock data with real parsed recipes from API
 const MOCK_RECIPES: Recipe[] = [
   {
     slug: 'carbonara',
@@ -12,7 +13,7 @@ const MOCK_RECIPES: Recipe[] = [
     cookTime: 20,
     tags: ['pasta', 'italian'],
     accent: '#f59e0b',
-    ingredients: [],
+    ingredientGroups: [],
     steps: [],
   },
   {
@@ -24,7 +25,7 @@ const MOCK_RECIPES: Recipe[] = [
     cookTime: 45,
     tags: ['dessert', 'french'],
     accent: '#f97316',
-    ingredients: [],
+    ingredientGroups: [],
     steps: [],
   },
   {
@@ -36,7 +37,7 @@ const MOCK_RECIPES: Recipe[] = [
     cookTime: 40,
     tags: ['chicken', 'indian'],
     accent: '#ef4444',
-    ingredients: [],
+    ingredientGroups: [],
     steps: [],
   },
   {
@@ -48,7 +49,7 @@ const MOCK_RECIPES: Recipe[] = [
     cookTime: 0,
     tags: ['salad', 'vegetarian'],
     accent: '#22c55e',
-    ingredients: [],
+    ingredientGroups: [],
     steps: [],
   },
   {
@@ -60,7 +61,7 @@ const MOCK_RECIPES: Recipe[] = [
     cookTime: 180,
     tags: ['beef', 'french', 'slow-cook'],
     accent: '#8b5cf6',
-    ingredients: [],
+    ingredientGroups: [],
     steps: [],
   },
   {
@@ -72,7 +73,7 @@ const MOCK_RECIPES: Recipe[] = [
     cookTime: 15,
     tags: ['breakfast', 'quick'],
     accent: '#eab308',
-    ingredients: [],
+    ingredientGroups: [],
     steps: [],
   },
 ];

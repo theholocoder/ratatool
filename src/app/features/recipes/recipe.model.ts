@@ -1,7 +1,12 @@
 export interface Ingredient {
-  quantity: number;
-  unit: string;
+  quantity: number | null;
+  unit: string | null;
   name: string;
+}
+
+export interface IngredientGroup {
+  title: string | null;
+  ingredients: Ingredient[];
 }
 
 export interface RecipeStep {
@@ -12,11 +17,11 @@ export interface Recipe {
   slug: string;
   title: string;
   description: string;
-  servings: number;
-  prepTime: number;
-  cookTime: number;
+  servings: number | null;
+  prepTime: number | null;
+  cookTime: number | null;
   tags: string[];
-  accent: string;
-  ingredients: Ingredient[];
+  accent?: string;
+  ingredientGroups: IngredientGroup[];
   steps: RecipeStep[];
 }

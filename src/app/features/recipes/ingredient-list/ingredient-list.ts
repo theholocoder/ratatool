@@ -8,5 +8,6 @@ import { Ingredient } from "../recipe.model";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IngredientList {
+  // TODO: accept IngredientGroup[] instead of flat Ingredient[]
   ingredients = input.required<Ingredient[]>();
 }

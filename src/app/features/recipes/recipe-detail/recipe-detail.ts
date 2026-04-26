@@ -4,6 +4,7 @@ import { Recipe } from '../recipe.model';
 import { IngredientList } from '../ingredient-list/ingredient-list';
 import { ServingAdjuster } from '../serving-adjuster/serving-adjuster';
 
+// TODO: replace mock data with real parsed recipe from API
 const MOCK_RECIPE: Recipe = {
   slug: 'carbonara',
   title: 'Pasta Carbonara',
@@ -13,14 +14,19 @@ const MOCK_RECIPE: Recipe = {
   cookTime: 20,
   tags: ['pasta', 'italian', 'quick'],
   accent: '#f59e0b',
-  ingredients: [
-    { quantity: 400, unit: 'g', name: 'spaghetti or rigatoni' },
-    { quantity: 150, unit: 'g', name: 'guanciale (or pancetta)' },
-    { quantity: 4, unit: '', name: 'egg yolks' },
-    { quantity: 1, unit: '', name: 'whole egg' },
-    { quantity: 80, unit: 'g', name: 'Pecorino Romano, finely grated' },
-    { quantity: 1, unit: 'tsp', name: 'coarsely ground black pepper' },
-    { quantity: 1, unit: 'pinch', name: 'flaky sea salt' },
+  ingredientGroups: [
+    {
+      title: null,
+      ingredients: [
+        { quantity: 400, unit: 'g', name: 'spaghetti or rigatoni' },
+        { quantity: 150, unit: 'g', name: 'guanciale (or pancetta)' },
+        { quantity: 4, unit: null, name: 'egg yolks' },
+        { quantity: 1, unit: null, name: 'whole egg' },
+        { quantity: 80, unit: 'g', name: 'Pecorino Romano, finely grated' },
+        { quantity: 1, unit: 'tsp', name: 'coarsely ground black pepper' },
+        { quantity: 1, unit: 'pinch', name: 'flaky sea salt' },
+      ],
+    },
   ],
   steps: [
     { content: 'Bring a large pot of well-salted water to a boil. Cook pasta until 1 minute before al dente, then reserve 1 cup of pasta water before draining.' },
